@@ -4,6 +4,10 @@ This repository contains tools and scripts to train and test **LoRA models** on 
 
 ***
 
+Example Output:
+
+![Sample Output](Example_Outputs\Image4.jpg)
+
 ## ⚠️ Major Update Notice
 
 - **Switched from Stable Diffusion 1.5 to Stable Diffusion XL (SDXL)** for improved image quality and model capabilities.
