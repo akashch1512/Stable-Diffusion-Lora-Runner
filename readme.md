@@ -4,7 +4,21 @@ This repository contains tools and scripts to train and test **LoRA models** on 
 
 ***
 
-Example Output:
+
+Here is a suitable section text for your README to include the download link for your trained model:
+
+***
+
+## Download My Trained Model
+
+You can download the trained LoRA model from the link below:
+
+[https://drive.google.com/file/d/1o5WSHwgN6z_TOlkRaq-m_x5zdYoAef8t/view?usp=sharing](https://drive.google.com/file/d/1o5WSHwgN6z_TOlkRaq-m_x5zdYoAef8t/view?usp=sharing)
+
+Place the downloaded safetensors file into the `Lora/` folder to use it with the testing scripts or incorporate it in your Stable Diffusion XL pipeline.
+
+
+## Example Output:
 
 ![Sample Output](Example_Outputs/Image4.jpg)
 
