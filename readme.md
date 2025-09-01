@@ -1,79 +1,70 @@
-# 🔧 LoRA Training — Stable Diffusion 1.5 (Google Colab)
+# 🔧 LoRA Training — Stable Diffusion XL (v0.2.0)
 
-This repository contains a **Google Colab notebook** to train **LoRA models** on **Stable Diffusion 1.5**.  
-It is designed for creators who want to fine-tune SD1.5 on custom datasets (faces, characters, styles, etc.).  
+This repository contains tools and scripts to train and test **LoRA models** on **Stable Diffusion XL (SDXL)**, the latest major upgrade from SD1.5. It is designed for creators aiming to fine-tune SDXL on custom datasets (faces, characters, styles, etc.).
 
----
+***
 
-## 🚀 Features
-- ✅ Automatic environment setup (Python 3.10, CUDA 12.1, Torch 2.2.2)  
-- ✅ Tested with **kohya-ss sd-scripts**  
-- ✅ Drive integration for dataset, cache, outputs, and logs  
-- ✅ Custom **trigger token** for your LoRA  
-- ✅ Configurable hyperparameters (resolution, batch size, steps, etc.)  
-- ✅ Optimized with **xformers** and **bitsandbytes**  
+## ⚠️ Major Update Notice
 
----
+- **Switched from Stable Diffusion 1.5 to Stable Diffusion XL (SDXL)** for improved image quality and model capabilities.
+- **Important:** SDXL requires higher hardware specs.  
+  If running on a low-end PC or limited GPU, it is recommended to use **v0.1.0** with SD1.5 for better performance and stability.
 
-## 📂 Notebook Sections
-1. **Environment Setup** — GPU check, Drive mount, Python 3.10 upgrade  
-2. **Dependency Installation** — Torch + CUDA, Hugging Face stack, utilities  
-3. **Dataset Preparation** — Split into close-ups, medium, full-body  
-4. **Project Config** — Define project name, trigger word, training parameters  
-5. **Training** — Launch kohya-ss script with your settings  
-6. **Export & Inference** — Save LoRA to Drive, test with prompt  
+***
 
----
+## 🚀 New Features in v0.2.0
 
-## ⚙️ Project Config (STEP 4)
-When configuring your project in the notebook, set:
+- Migrated codebase to support SDXL instead of SD1.5.
+- Optimized code for better performance and efficiency.
+- Added test script: `try_my_LoRA.py` to easily test trained LoRA models using a standalone Python file.
+- Simplified folder structure with dedicated locations for LoRA safetensors and training notebooks.
 
-- **Project Name** → folder for datasets, outputs, logs  
-- **Trigger Word** → unique keyword (e.g. `akashawriter`)  
-- **Resolution** → `512` (lighter/faster) or `768` (better detail, heavy VRAM)  
-- **Batch Size** → `1` for T4 GPU, `2+` if you have higher VRAM  
-- **Max Steps** → start with `3000–5000` for decent results  
-- **Network Dim / Alpha** → `16` or `32` (higher = more capacity, heavier model)  
-- **Learning Rate** → Default `1e-4` works for most cases  
+***
 
-👉 If unsure, stick to defaults.  
+## 📂 Updated Folder Structure
 
----
+```
+Lora/                   # LoRA safetensors placed here
+Train_Your_Lora/        # Jupyter notebooks to train your LoRA models
+readme.md               # This readme file
+requirements.txt        # Required Python dependencies
+try_my_LoRA.py          # Test script to run inference with your trained LoRA
+```
 
-## 🔥 Best Settings for Maximum Quality
-If you want **the best possible output**, even if it consumes more GPU memory or takes longer:  
+***
 
-- **Resolution** → `768`  
-- **Batch Size** → `2` (if VRAM allows)  
-- **Max Steps** → `8000–12000` (longer training = sharper features, but risk of overfit)  
-- **Network Dim** → `32` (more detail capacity)  
-- **Learning Rate** → keep defaults; don’t go too high or it overfits  
-- **Dataset** →  
-  - 60–70% close-up faces  
-  - 20–30% medium shots  
-  - 10–20% full body  
-  - Use **high-res, diverse images** with consistent labeling  
-  - Avoid duplicates and blurred/noisy images  
+## 🛠️ How to Use
 
-⚠️ Note: On Colab T4 GPUs, training with these settings may take several hours. For faster results, reduce steps.  
+### Training
 
----
+1. Use the notebook(s) in `Train_Your_Lora/` to prepare datasets and train your LoRA on SDXL.
+2. Training requires hardware capable of running SDXL smoothly (high VRAM GPUs recommended).
 
-## 📊 Tips for Best Results
-- Clean your dataset manually before training (blurred/duplicate images kill quality).  
-- Use **unique, uncommon trigger tokens** (avoid generic words).  
-- Save intermediate checkpoints (e.g., at 3k, 6k, 10k steps).  
-- Test LoRA at multiple checkpoints — sometimes earlier ones perform better.  
+### Testing
 
----
+- Run `try_my_LoRA.py` to test your trained LoRA with sample prompts and evaluate results immediately.
 
-## 📜 License
-This notebook is based on [kohya-ss sd-scripts](https://github.com/kohya-ss/sd-scripts).  
-Follow the license of that repository when redistributing.  
+***
 
----
+## 💡 Disclaimer
+
+- SDXL models are **more demanding** and may not run smoothly on low-end or older GPUs.
+- For users with limited hardware, please continue to use **v0.1.0** which supports Stable Diffusion 1.5, consuming less VRAM.
+
+***
+
+## 📋 Requirements
+
+- See `requirements.txt` for all necessary Python packages and versions.
+
+***
 
 ## 🙌 Credits
-- Stable Diffusion 1.5 by [CompVis & StabilityAI](https://github.com/CompVis/stable-diffusion)  
-- LoRA training scripts from [kohya-ss](https://github.com/kohya-ss/sd-scripts)  
-- Colab adaptation by Akash  
+
+- Stable Diffusion XL by Stability AI and collaborators.
+- LoRA training scripts adapted and optimized from [kohya-ss sd-scripts].
+- v0.1.0 legacy support for Stable Diffusion 1.5 by Akash.
+
+***
+
+This update unleashes the power of SDXL with LoRA training and testing in one streamlined repo!
