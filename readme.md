@@ -6,7 +6,7 @@ This repository contains tools and scripts to train and test **LoRA models** on 
 
 Example Output:
 
-![Sample Output](Example_Outputs\Image4.jpg)
+![Sample Output](Example_Outputs/Image4.jpg)
 
 ## ⚠️ Major Update Notice
 
